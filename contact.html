@@ -36,8 +36,17 @@
   </p>
 
   <p>
-    <label for="phone">Call-back Number</label><br>
-    <input id="phone" name="phone" type="tel" placeholder="e.g. 555-123-4567">
+    <label for="phone">Call-back Number (optional)</label><br>
+<input
+  id="phone"
+  name="phone"
+  type="tel"
+  inputmode="tel"
+  autocomplete="tel"
+  placeholder="e.g. 555-123-4567"
+  pattern="^(\+1\s?)?(\(?\d{3}\)?[\s.-]?)\d{3}[\s.-]?\d{4}$"
+  title="Enter a valid US phone number (e.g., 555-123-4567 or (555) 123-4567)"
+>
   </p>
 
   <p>
