@@ -2,14 +2,16 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Contact | Peace-Thrives Homes </title>
+<title>Contact | Peace-Thrives Homes</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+<a class="skip-link" href="#main">Skip to main content</a>
+
 <header>
-<h1>Peace-Thrives Homes </h1>
+<h1>Peace-Thrives Homes</h1>
 <p>Independent Living Provider</p>
 <nav aria-label="Main navigation">
     <a href="index.html">Home</a>
@@ -23,30 +25,34 @@
 
 <main id="main">
 <section>
+
 <form action="https://formspree.io/f/xbjvjqkg" method="POST">
+  <input type="hidden" name="_subject" value="New website inquiry - Peace-Thrives Homes">
 
   <p>
     <label for="name">Full Name</label><br>
-    <input id="name" name="name" type="text" required>
+    <input id="name" name="name" type="text" autocomplete="name" required>
   </p>
 
   <p>
     <label for="email">Email Address</label><br>
-    <input id="email" name="email" type="email" required>
+    <input id="email" name="email" type="email" autocomplete="email" required>
   </p>
 
   <p>
     <label for="phone">Call-back Number (optional)</label><br>
-<input
-  id="phone"
-  name="phone"
-  type="tel"
-  inputmode="tel"
-  autocomplete="tel"
-  placeholder="e.g. 555-123-4567"
-  pattern="^(\+1\s?)?(\(?\d{3}\)?[\s.-]?)\d{3}[\s.-]?\d{4}$"
-  title="Enter a valid US phone number (e.g., 555-123-4567 or (555) 123-4567)"
->
+    <input
+      id="phone"
+      name="phone"
+      type="tel"
+      inputmode="tel"
+      autocomplete="tel"
+      placeholder="e.g. 555-123-4567"
+      minlength="10"
+      maxlength="18"
+      pattern="^(\+1\s?)?(\(?\d{3}\)?[\s.-]?)\d{3}[\s.-]?\d{4}$"
+      title="Enter a valid US phone number (e.g., 555-123-4567 or (555) 123-4567)"
+    >
   </p>
 
   <p>
@@ -57,14 +63,13 @@
   <p>
     <button class="button" type="submit">Send Message</button>
   </p>
-
 </form>
 
 </section>
 </main>
 
 <footer role="contentinfo">
-<p>© 2025 Peace-Thrives Homes LLC</p>
+  <p>© 2025 Peace-Thrives Homes LLC | <a href="accessibility.html" style="color:white;">Accessibility</a></p>
 </footer>
 
 </body>
