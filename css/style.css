@@ -92,3 +92,22 @@ body {
 main {
     flex: 1;
 }
+
+/* Form validation + accessibility */
+input:focus, textarea:focus, button:focus {
+  outline: 3px solid currentColor;
+  outline-offset: 2px;
+}
+
+input:invalid, textarea:invalid {
+  border: 2px solid #b00020;
+}
+
+input:invalid:focus, textarea:invalid:focus {
+  box-shadow: 0 0 0 3px rgba(176, 0, 32, 0.25);
+}
+
+.form-help {
+  font-size: 0.9em;
+  margin-top: 6px;
+}
