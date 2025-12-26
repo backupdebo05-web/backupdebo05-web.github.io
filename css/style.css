@@ -111,3 +111,30 @@ input:invalid:focus, textarea:invalid:focus {
   font-size: 0.9em;
   margin-top: 6px;
 }
+
+/* Header logo */
+.header-brand {
+  text-align: center;
+  padding: 18px 12px 8px;
+}
+
+.brand {
+  display: inline-block;
+}
+
+.brand-logo {
+  max-width: 180px; /* adjust if you want larger */
+  width: 100%;
+  height: auto;
+}
+
+.tagline {
+  margin: 8px 0 0;
+  font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+  .brand-logo {
+    max-width: 150px;
+  }
+}
