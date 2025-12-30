@@ -171,31 +171,35 @@ main {
 }
 
 /* ================================
-   Gallery layout
+   Clickable Gallery (non-tiled look)
 ================================ */
 
 .gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 18px;
-  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
 }
 
-.gallery-card {
-  background: #fff;
+.gallery-link {
+  display: inline-block;
+  max-width: 600px;
+  width: 100%;
   border-radius: 12px;
   overflow: hidden;
-  border: 1px solid #e6e6e6;
+  border: 1px solid #ddd;
+  background: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.gallery-card img {
-  max-width: 100%;
-  height: auto;     /* shows original proportions */
+.gallery-link:hover,
+.gallery-link:focus {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.gallery-link img {
+  width: 100%;
+  height: auto;
   display: block;
 }
-
-
-.gallery-card figcaption { 
-  display: none; 
-}
-
