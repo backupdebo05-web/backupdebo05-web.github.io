@@ -146,19 +146,19 @@ input:invalid:focus, textarea:invalid:focus {
 ================================ */
 
 body.home-page {
-  background: url("assets/images/background2.jpg") center/cover no-repeat fixed;
+  background: url("../assets/images/background2.jpg") center/cover no-repeat fixed;
 }
 
 body.about-page {
-  background: url("assets/images/about-background.jpg") center/cover no-repeat fixed;
+  background: url("../assets/images/about-background.jpg") center/cover no-repeat fixed;
 }
 
 body.services-page {
-  background: url("assets/images/services-background.jpg") center/cover no-repeat fixed;
+  background: url("../assets/images/services-background.jpg") center/cover no-repeat fixed;
 }
 
 body.contact-page {
-  background: url("assets/images/contact-background.jpg") center/cover no-repeat fixed;
+  background: url("../assets/images/contact-background.jpg") center/cover no-repeat fixed;
 }
 
 /* Optional: makes text readable on background images */
