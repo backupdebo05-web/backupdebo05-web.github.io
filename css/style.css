@@ -197,3 +197,85 @@ main {
   object-fit: cover;     /* crops cleanly */
   display: block;
 }
+/* ================================
+   Lightbox (popup + next/prev)
+================================ */
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 18px;
+}
+
+.lightbox.is-open {
+  display: flex;
+}
+
+.lightbox-image {
+  max-width: min(92vw, 1100px);
+  max-height: 86vh;
+  width: auto;
+  height: auto;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.lightbox-close,
+.lightbox-prev,
+.lightbox-next {
+  position: absolute;
+  border: 0;
+  background: rgba(255,255,255,0.95);
+  color: #111;
+  cursor: pointer;
+  border-radius: 999px;
+  width: 44px;
+  height: 44px;
+  font-size: 28px;
+  line-height: 44px;
+  text-align: center;
+}
+
+.lightbox-close {
+  top: 14px;
+  right: 14px;
+  font-size: 30px;
+}
+
+.lightbox-prev {
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox-next {
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.lightbox-close:focus,
+.lightbox-prev:focus,
+.lightbox-next:focus {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+@media (max-width: 600px) {
+  .lightbox-prev,
+  .lightbox-next {
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    line-height: 40px;
+  }
+}
