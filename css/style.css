@@ -196,6 +196,7 @@ main {
   height: 240px;          /* SAME visual height for all */
   object-fit: cover;     /* crops cleanly */
   display: block;
+  border-radius: 12px;
 }
 /* ================================
    Lightbox (popup + next/prev)
