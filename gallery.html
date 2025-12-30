@@ -30,43 +30,43 @@
 
   <div class="gallery-grid">
 
-  <a href="assets/images/about-background.jpg" class="gallery-link" target="_blank">
+  <a href="assets/images/about-background.jpg" class="gallery-link" data-lightbox="gallery">
     <img src="assets/images/about-background.jpg" alt="Interior space image used as About page background">
   </a>
 
-  <a href="assets/images/background2.jpg" class="gallery-link" target="_blank">
+  <a href="assets/images/background2.jpg" class="gallery-link" data-lightbox="gallery">
     <img src="assets/images/background2.jpg" alt="Interior space image used as Home page background">
   </a>
 
-  <a href="assets/images/contact-background.jpg" class="gallery-link" target="_blank">
+  <a href="assets/images/contact-background.jpg" class="gallery-link" data-lightbox="gallery">
     <img src="assets/images/contact-background.jpg" alt="Interior space image used as Contact page background">
   </a>
 
-  <a href="assets/images/services-background.jpg" class="gallery-link" target="_blank">
+  <a href="assets/images/services-background.jpg" class="gallery-link" data-lightbox="gallery">
     <img src="assets/images/services-background.jpg" alt="Interior space image used as Services page background">
   </a>
 
-  <a href="assets/images/dinning-area.jpg" class="gallery-link" target="_blank">
+  <a href="assets/images/dinning-area.jpg" class="gallery-link" data-lightbox="gallery">
     <img src="assets/images/dinning-area.jpg" alt="Dining area space">
   </a>
 
-  <a href="assets/images/kitchen.jpg" class="gallery-link" target="_blank">
+  <a href="assets/images/kitchen.jpg" class="gallery-link" data-lightbox="gallery">
     <img src="assets/images/kitchen.jpg" alt="Kitchen space">
   </a>
 
-  <a href="assets/images/bath1.jpg" class="gallery-link" target="_blank">
+  <a href="assets/images/bath1.jpg" class="gallery-link" data-lightbox="gallery">
     <img src="assets/images/bath1.jpg" alt="Bathroom space">
   </a>
 
-  <a href="assets/images/bath2.jpg" class="gallery-link" target="_blank">
+  <a href="assets/images/bath2.jpg" class="gallery-link" data-lightbox="gallery">
     <img src="assets/images/bath2.jpg" alt="Bathroom space">
   </a>
 
-  <a href="assets/images/private2.jpg" class="gallery-link" target="_blank">
+  <a href="assets/images/private2.jpg" class="gallery-link" data-lightbox="gallery">
     <img src="assets/images/private2.jpg" alt="Private bedroom space">
   </a>
 
-  <a href="assets/images/shared4.jpg" class="gallery-link" target="_blank">
+  <a href="assets/images/shared4.jpg" class="gallery-link" data-lightbox="gallery">
     <img src="assets/images/shared4.jpg" alt="Shared bedroom with two beds">
   </a>
 
@@ -90,6 +90,95 @@ offer medical, nursing, or personal care services.
 </p>
 
 </footer>
+
+<!-- Lightbox overlay -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" type="button" aria-label="Close image">×</button>
+
+  <button class="lightbox-prev" type="button" aria-label="Previous image">‹</button>
+
+  <img class="lightbox-image" alt="Expanded gallery image">
+
+  <button class="lightbox-next" type="button" aria-label="Next image">›</button>
+</div>
+
+<script>
+(function () {
+  const links = Array.from(document.querySelectorAll('a[data-lightbox="gallery"]'));
+  const lightbox = document.getElementById('lightbox');
+  const img = lightbox.querySelector('.lightbox-image');
+  const btnClose = lightbox.querySelector('.lightbox-close');
+  const btnPrev = lightbox.querySelector('.lightbox-prev');
+  const btnNext = lightbox.querySelector('.lightbox-next');
+
+  let currentIndex = 0;
+  let lastFocused = null;
+
+  function openLightbox(index) {
+    currentIndex = index;
+    lastFocused = document.activeElement;
+
+    const href = links[currentIndex].getAttribute('href');
+    const alt = links[currentIndex].querySelector('img')?.getAttribute('alt') || 'Gallery image';
+
+    img.src = href;
+    img.alt = alt;
+
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('no-scroll');
+
+    btnClose.focus();
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('no-scroll');
+
+    img.src = '';
+
+    if (lastFocused) lastFocused.focus();
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % links.length;
+    openLightbox(currentIndex);
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + links.length) % links.length;
+    openLightbox(currentIndex);
+  }
+
+  // Click handlers for thumbnails
+  links.forEach((link, index) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      openLightbox(index);
+    });
+  });
+
+  // Buttons
+  btnClose.addEventListener('click', closeLightbox);
+  btnNext.addEventListener('click', (e) => { e.preventDefault(); showNext(); });
+  btnPrev.addEventListener('click', (e) => { e.preventDefault(); showPrev(); });
+
+  // Close on background click (not on image/buttons)
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  // Keyboard controls
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('is-open')) return;
+
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') showNext();
+    if (e.key === 'ArrowLeft') showPrev();
+  });
+})();
+</script>
 
 </body>
 </html>
