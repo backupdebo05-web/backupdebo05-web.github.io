@@ -280,3 +280,14 @@ main {
     line-height: 40px;
   }
 }
+
+.service-list {
+  margin: 1rem 0 1.5rem 1.25rem;
+  padding: 0;
+  list-style-type: disc;
+}
+
+.service-list li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}
