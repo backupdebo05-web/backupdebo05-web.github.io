@@ -358,3 +358,49 @@ main {
     height: 200px;
   }
 }
+/* ================================
+   GLOBAL TYPE SIZE (Fix small fonts)
+================================ */
+
+/* Always keep a readable base size */
+html { 
+  font-size: 16px; 
+}
+
+body {
+  font-size: 1rem;              /* 16px */
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%; /* prevents iPhone Safari from shrinking text */
+}
+
+/* Main “content card” should NOT shrink text */
+main {
+  font-size: 1rem;
+}
+
+/* Headings scale nicely on mobile + desktop */
+h1 { font-size: clamp(1.8rem, 3vw, 2.4rem); }
+h2 { font-size: clamp(1.4rem, 2.2vw, 1.9rem); }
+h3 { font-size: clamp(1.15rem, 1.8vw, 1.4rem); }
+
+/* Paragraphs and lists readable everywhere */
+p, li {
+  font-size: 1rem;
+}
+
+/* Navigation readable (and still fits mobile) */
+nav a {
+  font-size: 1rem;
+}
+
+/* Footer text a little smaller but readable */
+footer {
+  font-size: 0.95rem;
+}
+
+/* Small screens: slightly bigger text + better spacing */
+@media (max-width: 600px) {
+  html { font-size: 17px; }     /* slight bump for phones */
+  header { padding: 18px; }
+  nav a { display: inline-block; margin: 8px 10px; }
+}
