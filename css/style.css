@@ -291,3 +291,128 @@ main {
   margin-bottom: 0.5rem;
   line-height: 1.5;
 }
+
+/* ================================
+   Home page layout (keeps body background image)
+================================ */
+
+.home-main {
+  background: transparent;   /* keep the background image visible */
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+}
+
+.home-flyer {
+  max-width: 1150px;
+  margin: 28px auto;
+  padding: 26px;
+  background: rgba(255, 255, 255, 0.92);
+  border-radius: 16px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+}
+
+.home-headline h1 {
+  margin: 0 0 8px 0;
+  color: #0f4c81;
+  font-size: clamp(28px, 4vw, 44px);
+  letter-spacing: 0.5px;
+}
+
+.home-subtitle {
+  margin: 0 0 10px 0;
+  font-weight: 600;
+}
+
+.home-rate {
+  margin: 0 0 14px 0;
+  font-size: 1.1rem;
+}
+
+.home-welcome h2 {
+  margin: 0 0 10px 0;
+}
+
+.home-includes {
+  margin-top: 14px;
+  padding: 14px;
+  border-left: 5px solid #0f4c81;
+  background: rgba(15, 76, 129, 0.06);
+  border-radius: 12px;
+}
+
+.home-includes h3 {
+  margin: 0 0 10px 0;
+  color: #0f4c81;
+}
+
+.home-includes ul {
+  margin: 0 0 0 18px;
+}
+
+.home-contact {
+  margin-top: 14px;
+  padding: 14px;
+  border: 1px solid #e6e6e6;
+  background: #fff;
+  border-radius: 12px;
+}
+
+.home-contact a {
+  color: #0f4c81;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.home-contact a:hover,
+.home-contact a:focus {
+  text-decoration: underline;
+}
+
+.home-cta {
+  margin-top: 10px;
+}
+
+/* Rounded rectangle image row */
+.home-photo-row {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.home-photo {
+  display: block;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+  box-shadow: 0 10px 18px rgba(0,0,0,0.12);
+}
+
+.home-photo img {
+  width: 100%;
+  height: 170px;        /* makes them same size */
+  object-fit: cover;    /* crops nicely without stretching */
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .home-photo-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .home-photo img {
+    height: 200px;
+  }
+}
+
+@media (max-width: 560px) {
+  .home-photo-row {
+    grid-template-columns: 1fr;
+  }
+  .home-photo img {
+    height: 220px;
+  }
+}
